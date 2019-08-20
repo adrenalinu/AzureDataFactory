@@ -1,0 +1,7 @@
+{
+	"name": "ohselfhstdintrnt",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "OpenHack selfhosted IR"
+	}
+}
