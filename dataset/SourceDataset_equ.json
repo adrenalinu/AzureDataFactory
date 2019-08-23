@@ -1,0 +1,63 @@
+{
+	"name": "SourceDataset_equ",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DataLakeG2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlobFSFile",
+		"structure": [
+			{
+				"name": "AddressID",
+				"type": "String"
+			},
+			{
+				"name": "CustomerID",
+				"type": "String"
+			},
+			{
+				"name": "State",
+				"type": "String"
+			},
+			{
+				"name": "City",
+				"type": "String"
+			},
+			{
+				"name": "ZipCode",
+				"type": "String"
+			},
+			{
+				"name": "AddressLine1",
+				"type": "String"
+			},
+			{
+				"name": "CreatedDate",
+				"type": "String"
+			},
+			{
+				"name": "UpdatedDate",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects",
+				"jsonPathDefinition": {
+					"AddressID": "$.['AddressID']",
+					"CustomerID": "$.['CustomerID']",
+					"State": "$.['State']",
+					"City": "$.['City']",
+					"ZipCode": "$.['ZipCode']",
+					"AddressLine1": "$.['AddressLine1']",
+					"CreatedDate": "$.['CreatedDate']",
+					"UpdatedDate": "$.['UpdatedDate']"
+				}
+			},
+			"fileName": "part-00000-tid-9159754891585097924-66abba4d-7378-4f8d-a11c-4c7268b51e44-296-1-c000.json",
+			"folderPath": "result/addresses"
+		}
+	}
+}
