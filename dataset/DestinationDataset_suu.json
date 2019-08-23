@@ -1,0 +1,65 @@
+{
+	"name": "DestinationDataset_suu",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDW1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "AddressID",
+				"type": "uniqueidentifier",
+				"precision": 255,
+				"scale": 255
+			},
+			{
+				"name": "CustomerID",
+				"type": "uniqueidentifier",
+				"precision": 255,
+				"scale": 255
+			},
+			{
+				"name": "AddressLine1",
+				"type": "varchar",
+				"precision": 255,
+				"scale": 255
+			},
+			{
+				"name": "City",
+				"type": "varchar",
+				"precision": 255,
+				"scale": 255
+			},
+			{
+				"name": "State",
+				"type": "char",
+				"precision": 255,
+				"scale": 255
+			},
+			{
+				"name": "ZipCode",
+				"type": "char",
+				"precision": 255,
+				"scale": 255
+			},
+			{
+				"name": "CreatedDate",
+				"type": "date",
+				"precision": 255,
+				"scale": 255
+			},
+			{
+				"name": "UpdatedDate",
+				"type": "date",
+				"precision": 255,
+				"scale": 255
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Addresses"
+		}
+	}
+}
