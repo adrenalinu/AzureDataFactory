@@ -1,0 +1,15 @@
+{
+	"name": "DestinationDataset_8gi",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [],
+		"typeProperties": {
+			"table": "output"
+		},
+		"sqlPool": {
+			"referenceName": "DWH",
+			"type": "SqlPoolReference"
+		}
+	}
+}
