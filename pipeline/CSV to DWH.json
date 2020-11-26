@@ -3,7 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_8gi",
+				"name": "Copy_Data",
+				"description": "From Data Lake to DWH",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
