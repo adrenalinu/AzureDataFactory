@@ -1,0 +1,12 @@
+{
+	"name": "WeatherForecast",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "7timer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}

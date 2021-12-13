@@ -1,0 +1,17 @@
+{
+	"name": "WeatherForecastJson",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DataLakeG2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			}
+		},
+		"schema": {}
+	}
+}
