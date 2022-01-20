@@ -1,0 +1,13 @@
+{
+	"name": "AzureMLService",
+	"properties": {
+		"annotations": [],
+		"type": "AzureMLService",
+		"typeProperties": {
+			"subscriptionId": "9fd84487-dc57-48b2-949c-0e749cb18930",
+			"resourceGroupName": "sasha_ml",
+			"mlWorkspaceName": "sasha_mls",
+			"authentication": "MSI"
+		}
+	}
+}
