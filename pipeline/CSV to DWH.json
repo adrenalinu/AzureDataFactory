@@ -132,7 +132,21 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"ifTrueActivities": [
+						{
+							"name": "Fail",
+							"type": "Fail",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"message": "Error",
+								"errorCode": "1"
+							}
+						}
+					]
+				}
 			},
 			{
 				"name": "Machine Learning Execute Pipeline",
