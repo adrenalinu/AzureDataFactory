@@ -98,6 +98,28 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Wait 1 Sec",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Copy CSV to DWH",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Copy REST API to DataLake",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
 			}
 		],
 		"annotations": []
