@@ -134,7 +134,7 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
-					"ifTrueActivities": [
+					"ifFalseActivities": [
 						{
 							"name": "Fail",
 							"type": "Fail",
@@ -143,6 +143,18 @@
 							"typeProperties": {
 								"message": "Error",
 								"errorCode": "1"
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "Success",
+							"type": "Fail",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"message": "Correct",
+								"errorCode": "0"
 							}
 						}
 					]
@@ -173,9 +185,16 @@
 				}
 			},
 			{
-				"name": "Notebook1",
+				"name": "Databricks Notebook",
 				"type": "DatabricksNotebook",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Wait 1 Sec",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
