@@ -1,0 +1,49 @@
+{
+	"name": "Weather Dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "WeatherForecast",
+						"type": "DatasetReference"
+					},
+					"name": "WeatherForecast"
+				}
+			],
+			"sinks": [
+				{
+					"name": "ResultData"
+				}
+			],
+			"transformations": [
+				{
+					"name": "FilterRows"
+				},
+				{
+					"name": "SelectColumns"
+				}
+			],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     httpMethod: 'GET',",
+				"     timeout: 30,",
+				"     requestInterval: 0,",
+				"     paginationRules: ['supportRFC5988' -> 'true'],",
+				"     responseFormat: ['type' -> 'json', 'documentForm' -> 'documentPerLine']) ~> WeatherForecast",
+				"WeatherForecast filter(ERROR_FUNCTION('')) ~> FilterRows",
+				"FilterRows select(skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SelectColumns",
+				"SelectColumns sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     store: 'synapse',",
+				"     databaseType: 'spark',",
+				"     format: 'table',",
+				"     database: 'default',",
+				"     tableName: '') ~> ResultData"
+			]
+		}
+	}
+}
