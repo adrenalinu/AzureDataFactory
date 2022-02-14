@@ -1,0 +1,28 @@
+{
+	"name": "ExportToJSON",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureSynapseAnalytics",
+						"type": "DatasetReference"
+					},
+					"name": "MaxOrdersAmount"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "MaxOrderBySource",
+						"type": "DatasetReference"
+					},
+					"name": "DataLake"
+				}
+			],
+			"transformations": [],
+			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tquery: 'SELECT [SystemSource], MAX([OrderTotal]) as MaxTotal \\nFROM [dbo].[SalesOrders] \\nGROUP BY [SystemSource]',\n\tformat: 'query',\n\tstaged: false) ~> MaxOrdersAmount\nMaxOrdersAmount sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tumask: 0022,\n\tpreCommands: [],\n\tpostCommands: []) ~> DataLake"
+		}
+	}
+}

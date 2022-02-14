@@ -1,0 +1,17 @@
+{
+	"name": "LocalSQLServer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SashaSQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Sales",
+			"table": "SalesOrderDetail"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

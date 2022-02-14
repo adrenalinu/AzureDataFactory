@@ -1,0 +1,16 @@
+{
+	"name": "SashaSQL",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=MININT-NUSH976.europe.corp.microsoft.com;initial catalog=AdventureWorks2017;user id=sqldc",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxN2NiMmRlNC0xNTMyLTRlNTYtYWU4NC1iZjVhZDU5ZmE4ZmEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
