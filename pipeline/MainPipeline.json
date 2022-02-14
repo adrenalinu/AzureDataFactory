@@ -24,12 +24,20 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT 'Cloud' as Source, [OrderID], Sum([OrderAmount]) as OrderTotal\nFROM [dbo].[Orders] GROUP BY [OrderID]",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "SqlDWSink"
+						"type": "SqlDWSink",
+						"writeBehavior": "Upsert",
+						"upsertSettings": {
+							"keys": [
+								"SalesOrderID"
+							],
+							"interimSchemaName": ""
+						},
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"parallelCopies": 4,
