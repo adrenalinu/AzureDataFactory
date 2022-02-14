@@ -3,87 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data from Local SQL to DWH",
-				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "ClearDWH",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT 'Local' as Source, [SalesOrderID], SUM([LineTotal]) as OrderTotal\nFROM [AdventureWorks2017].[Sales].[SalesOrderDetail]\nGROUP BY [SalesOrderID]",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"sink": {
-						"type": "SqlDWSink"
-					},
-					"enableStaging": false,
-					"parallelCopies": 4,
-					"dataIntegrationUnits": 4,
-					"translator": {
-						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"name": "Source",
-									"type": "String"
-								},
-								"sink": {
-									"name": "SystemSource",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "SalesOrderID",
-									"type": "Int32"
-								},
-								"sink": {
-									"name": "SalesOrderID",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"name": "OrderTotal",
-									"type": "Decimal"
-								},
-								"sink": {
-									"name": "OrderTotal",
-									"type": "Decimal"
-								}
-							}
-						]
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "LocalSQLServer",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "AzureSynapseAnalytics",
-						"type": "DatasetReference"
-					}
-				]
-			},
-			{
 				"name": "Copy data from Cloud SQL to DWH",
 				"type": "Copy",
 				"dependsOn": [
@@ -188,12 +107,6 @@
 				"name": "Wait",
 				"type": "Wait",
 				"dependsOn": [
-					{
-						"activity": "Copy data from Local SQL to DWH",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					},
 					{
 						"activity": "Copy data from Cloud SQL to DWH",
 						"dependencyConditions": [
