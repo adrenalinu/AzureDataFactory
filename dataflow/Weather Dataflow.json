@@ -33,7 +33,7 @@
 				"     requestInterval: 0,",
 				"     paginationRules: ['supportRFC5988' -> 'true'],",
 				"     responseFormat: ['type' -> 'json', 'documentForm' -> 'documentPerLine']) ~> WeatherForecast",
-				"WeatherForecast filter(ERROR_FUNCTION('')) ~> FilterRows",
+				"WeatherForecast filter(\"product\" == \"astro\") ~> FilterRows",
 				"FilterRows select(skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SelectColumns",
 				"WeatherForecast sink(allowSchemaDrift: true,",
