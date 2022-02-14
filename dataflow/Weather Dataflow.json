@@ -38,11 +38,10 @@
 				"     skipDuplicateMapOutputs: true) ~> SelectColumns",
 				"WeatherForecast sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     store: 'synapse',",
-				"     databaseType: 'spark',",
-				"     format: 'table',",
-				"     database: 'default',",
-				"     tableName: '') ~> ResultData"
+				"     store: 'cache',",
+				"     format: 'inline',",
+				"     output: false,",
+				"     saveOrder: 1) ~> ResultData"
 			]
 		}
 	}
