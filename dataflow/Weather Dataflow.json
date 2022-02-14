@@ -36,7 +36,7 @@
 				"WeatherForecast filter(ERROR_FUNCTION('')) ~> FilterRows",
 				"FilterRows select(skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SelectColumns",
-				"SelectColumns sink(allowSchemaDrift: true,",
+				"WeatherForecast sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     store: 'synapse',",
 				"     databaseType: 'spark',",
