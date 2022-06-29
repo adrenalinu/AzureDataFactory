@@ -1,0 +1,18 @@
+{
+	"name": "AzureSqlDatabase_sashaDB",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sashasqlserver.database.windows.net;Initial Catalog=sashadb;User ID=sasha",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sasha"
+			}
+		}
+	}
+}
