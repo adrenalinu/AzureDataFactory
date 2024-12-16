@@ -1,0 +1,9 @@
+{
+	"name": "sasha",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5d9fd9c9-3914-4e62-b1ee-b0c1b1f7f2ec",
+		"tenantId": "16b3c013-d300-468d-ac64-7eda0820b6d3"
+	}
+}
